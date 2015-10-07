@@ -61,10 +61,14 @@ function watchIndex()
   gulp.watch( options.index.src, ['build-index']);
 }
 
-function serveProject()
+function anotherName()
 {
   // argument is entry point when the server is restarted
-  nodemon( { script : options.serverapp});
+  console.log('why is this being called');
+
+  var stack = new Error().stack
+console.log( stack )
+  //nodemon({ script : options.serverapp});
 }
 
 function startLiveReload() {
@@ -82,7 +86,7 @@ gulp.task('watch-javascript', watchJavascript);
 gulp.task('watch-styles', watchStyles);
 gulp.task('watch-index', watchIndex);
 
-gulp.task('serve', serveProject);
+gulp.task('serve', anotherName);
 
 gulp.task('watch', runSequence(['start-livereload', 'watch-javascript', 'watch-styles', 'watch-index', 'serve']));
 
